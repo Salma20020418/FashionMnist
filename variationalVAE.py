@@ -2,9 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-# ---------------------------
 # Encoder
-# ---------------------------
 class VariationalEncoder(nn.Module):
     def __init__(self, latent_dim=64):
         super(VariationalEncoder, self).__init__()
@@ -27,9 +25,7 @@ class VariationalEncoder(nn.Module):
         logvar = self.fc_logvar(x)
         return mu, logvar
 
-# ---------------------------
 # Decoder
-# ---------------------------
 class VariationalDecoder(nn.Module):
     def __init__(self, latent_dim=64):
         super(VariationalDecoder, self).__init__()
@@ -50,9 +46,7 @@ class VariationalDecoder(nn.Module):
         x_hat = self.deconv(x)
         return x_hat
 
-# ---------------------------
 # Variational Autoencoder
-# ---------------------------
 class VariationalAutoencoder(nn.Module):
     def __init__(self, latent_dim=64):
         super(VariationalAutoencoder, self).__init__()
